@@ -83,12 +83,12 @@ function addNumberToArray(operator) {
       numToCalc = [];
       break;
     case "decimal":
-      op = null;
       const textArr = [...displayText];
       if (!textArr.includes(".")) {
         displayText += ".";
         display.textContent = displayText;
       }
+      return;
       break;
     case "multiply":
       op = multiply;
