@@ -37,7 +37,6 @@ function operate(operator, num1, num2) {
 }
 
 function populateDisplay(num) {
-  console.log(`setting display to ${num.target.id}`);
   if (!Number.isInteger(Number(displayText))) {
     return;
   }
@@ -104,7 +103,6 @@ function addNumberToArray(operator) {
 }
 
 function calculateResult() {
-  console.log(numToCalc);
   if (numToCalc[1] === 0 && op === divide) {
     display.textContent = "ZERO DIVISION";
     return;
