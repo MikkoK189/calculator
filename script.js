@@ -117,4 +117,5 @@ function calculateResult() {
   }
   display.textContent = result;
   displayText = String(result);
+  op = null;
 }
