@@ -42,7 +42,7 @@ function populateDisplay(num) {
     return;
   }
   displayText += String(num.target.id);
-  if (!op) {
+  if (!op || !numToCalc[0]) {
     display.textContent = displayText;
     numToCalc[0] = Number(displayText);
   } else if (op) {
@@ -114,6 +114,8 @@ function calculateResult() {
   result = Math.round(result * 10) / 10;
   numToCalc = [];
   numToCalc[0] = Number(result);
-  console.log(numToCalc[0]);
+  if (numToCalc[0] === 0) {
+    numToCalc = [];
+  }
   display.textContent = result;
 }
