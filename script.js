@@ -116,4 +116,5 @@ function calculateResult() {
     numToCalc = [];
   }
   display.textContent = result;
+  displayText = String(result);
 }
