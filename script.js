@@ -37,6 +37,8 @@ function operate(operator, num1, num2) {
 }
 
 function populateDisplay(num) {
+  num.target.classList.add("pressed");
+  num.target.addEventListener("transitionend", removeTransition);
   if (!Number.isInteger(Number(displayText))) {
     return;
   }
@@ -85,9 +87,14 @@ function addNumberToArray(operator) {
     case "decimal":
       const textArr = [...displayText];
       if (!textArr.includes(".")) {
+        if (textArr.length === 0) {
+          displayText += "0";
+        }
         displayText += ".";
         display.textContent = displayText;
       }
+      operator.target.classList.add("pressed");
+      operator.target.addEventListener("transitionend", removeTransition);
       return;
       break;
     case "multiply":
@@ -97,6 +104,8 @@ function addNumberToArray(operator) {
     default:
       break;
   }
+  operator.target.classList.add("pressed");
+  operator.target.addEventListener("transitionend", removeTransition);
   if ((numToCalc[0] && numToCalc[1] === 0) || (numToCalc[0] && numToCalc[1])) {
     calculateResult();
   }
@@ -117,4 +126,8 @@ function calculateResult() {
   }
   display.textContent = result;
   displayText = String(result);
+}
+
+function removeTransition(e) {
+  e.target.classList.remove("pressed");
 }
