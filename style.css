@@ -13,6 +13,7 @@ body {
   gap: 5px;
   border-radius: 20px;
   width: 350px;
+  box-shadow: 5px 5px 5px 5px;
 }
 
 .screen {
